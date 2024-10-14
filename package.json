@@ -16,8 +16,8 @@
     "buildOnly": "vite build",
     "buildDts": "tsc -p tsconfig.declaration.json",
     "build": "tsc && yarn buildOnly && yarn buildDts",
-    "npm:deploy:login": "npm login --registry https://registry.npmjs.org",
-    "npm:deploy": "npm publish",
+    "npm:deploy:login": "npm login --scope=@windyland --always-auth --registry=https://registry.npmjs.org",
+    "npm:deploy": "npm publish --access public",
     "npm:undeploy": "npm unpublish --force"
   },
   "dependencies": {
