@@ -1,0 +1,17 @@
+# ide
+.idea/*
+
+# yarn
+.yarn
+
+# cache
+.cache
+
+# project
+node_modules
+
+# dist
+dist
+
+# yarn
+.yarn/releases

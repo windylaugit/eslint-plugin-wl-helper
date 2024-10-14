@@ -1,0 +1,45 @@
+{
+  "name": "@windyland/eslint-plugin-wl-helper",
+  "version": "1.0.1",
+  "description": "private eslint(8.x) plugin",
+  "module": "dist/eslint-plugin-wl-helper.cjs",
+  "main": "dist/eslint-plugin-wl-helper.cjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "373804860@qq.com",
+  "scripts": {
+    "clean:dist": "rimraf dist/**/* ",
+    "buildOnly": "vite build",
+    "buildDts": "tsc -p tsconfig.declaration.json",
+    "build": "tsc && yarn buildOnly && yarn buildDts"
+  },
+  "dependencies": {
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-rule-composer": "^0.3.0"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^1.6.2",
+    "@stylistic/eslint-plugin-migrate": "^1.6.2",
+    "@types/node": "^22.7.5",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-rule-composer": "^0.3.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.4.8"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-rule-composer": "^0.3.0"
+  },
+  "license": "MIT",
+  "npmClient": "yarn",
+  "packageManager": "yarn@4.5.0",
+  "ts-node": {
+    "esm": true
+  }
+}
