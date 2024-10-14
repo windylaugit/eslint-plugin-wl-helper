@@ -6,14 +6,19 @@
   "main": "dist/eslint-plugin-wl-helper.cjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "package.json",
+    "README.md"
   ],
   "author": "373804860@qq.com",
   "scripts": {
     "clean:dist": "rimraf dist/**/* ",
     "buildOnly": "vite build",
     "buildDts": "tsc -p tsconfig.declaration.json",
-    "build": "tsc && yarn buildOnly && yarn buildDts"
+    "build": "tsc && yarn buildOnly && yarn buildDts",
+    "npm:deploy:login": "npm login --registry https://registry.npmjs.org",
+    "npm:deploy": "npm publish",
+    "npm:undeploy": "npm unpublish --force"
   },
   "dependencies": {
     "eslint-plugin-import": "^2.29.1",
