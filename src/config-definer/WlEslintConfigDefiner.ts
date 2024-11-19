@@ -200,7 +200,7 @@ class WlEslintConfigDefiner {
     }
 
     if (useStylistic) {
-      const checkRet = m._checkDependencies(packageJson, 'useStylistic', [
+      const checkRet = m._checkDependencies(updatePackageJson ?? packageJson, 'useStylistic', [
         '@stylistic/eslint-plugin',
         '@stylistic/eslint-plugin-migrate'
       ])
@@ -276,7 +276,11 @@ class WlEslintConfigDefiner {
             fixed = true
           } else {
             const paramValue = m._option[paramName as keyof WlEslintConfigDefineOption]
-            m._throwErr(`Eslint配置启用了参数[${paramName}=${paramValue}]，请在package.json文件中添加依赖："${depName}": "${suggestVersion}"`)
+            if (paramValue) {
+              m._throwErr(`Eslint配置启用了参数[${paramName}=${paramValue}]，请在package.json文件中添加依赖："${depName}": "${suggestVersion}"`)
+            } else {
+              m._throwErr(`Eslint配置缺少依赖，请在package.json文件中添加依赖："${depName}": "${suggestVersion}"`)
+            }
           }
         }
       }
