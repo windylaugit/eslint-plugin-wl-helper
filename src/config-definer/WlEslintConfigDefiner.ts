@@ -103,6 +103,7 @@ class WlEslintConfigDefiner {
       "@stylistic/eslint-plugin-migrate": "^1.6.2",
       "@typescript-eslint/eslint-plugin": "^7.3.1",
       "@typescript-eslint/parser": "^7.3.1",
+      "eslint-config-airbnb-base": "^15.0.0",
       "eslint-plugin-import": "^2.29.1",
       "eslint-import-resolver-alias": "^1.1.2",
       "typescript": "^5.3.3",
@@ -189,6 +190,15 @@ class WlEslintConfigDefiner {
       useWl
     } = m._option
     let updatePackageJson: PackageJsonType | undefined
+    // 基础依赖检查
+    const checkRet = m._checkDependencies(packageJson, '', [
+      'eslint',
+      'eslint-config-airbnb-base'
+    ])
+    if (checkRet) {
+      updatePackageJson = checkRet
+    }
+
     if (useStylistic) {
       const checkRet = m._checkDependencies(packageJson, 'useStylistic', [
         '@stylistic/eslint-plugin',
